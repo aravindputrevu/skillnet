@@ -242,7 +242,6 @@ Create a dashboard layout at `src/app/dashboard/layout.tsx` with:
 - A sidebar navigation on the left (desktop) / bottom bar (mobile) with links:
   - Overview (icon: LayoutDashboard)
   - Skills (icon: Code2)
-  - Profile (icon: User)
   - Settings (icon: Settings)
 - Main content area on the right
 - The sidebar should highlight the active route
@@ -383,54 +382,13 @@ Install shadcn alert-dialog component if not already installed.
 
 ---
 
-### Phase 6: Profile & GitHub Integration
-
-**Goal:** Users can view their profile with GitHub data.
-
----
-
-#### Task 6.1 — Build the Profile Page
-
-```
-Create the profile page at `src/app/dashboard/profile/page.tsx` with:
-- User's GitHub avatar (large)
-- Display name, username, bio
-- "Member since" date
-- Skills summary: count by category, visualized as badges or a
-  simple chart
-- Link to GitHub profile (external link)
-
-Fetch user data server-side using the getCurrentUser utility
-and Prisma.
-
-Install shadcn components as needed: aspect-ratio, etc.
-```
-
----
-
-#### Task 6.2 — Build the Public Profile Page
-
-```
-Create a public profile route at `src/app/u/[username]/page.tsx` that:
-- Fetches the user by GitHub username from the database
-- Shows their public profile (avatar, name, bio, skills)
-- Returns 404 if user not found (use notFound())
-- Does NOT require authentication to view
-- Has proper Open Graph metadata for sharing (generateMetadata)
-
-This page should be statically generated where possible
-(generateStaticParams for popular profiles, fallback for others).
-```
-
----
-
-### Phase 7: Polish & Production Readiness
+### Phase 6: Polish & Production Readiness
 
 **Goal:** Error handling, loading states, and production configuration.
 
 ---
 
-#### Task 7.1 — Add Error and Loading States
+#### Task 6.1 — Add Error and Loading States
 
 ```
 Create the following error/loading boundary files:
@@ -449,7 +407,7 @@ light/dark mode.
 
 ---
 
-#### Task 7.2 — Add SEO and Metadata
+#### Task 6.2 — Add SEO and Metadata
 
 ```
 Update the root layout metadata in `src/app/layout.tsx` with:
@@ -467,7 +425,7 @@ Add metadata exports to each page with appropriate titles.
 
 ---
 
-#### Task 7.3 — Final Configuration and Cleanup
+#### Task 6.3 — Final Configuration and Cleanup
 
 ```
 Update `next.config.js` with:
@@ -497,8 +455,7 @@ Ensure all pages render correctly in both light and dark mode.
 | 3 | 3 tasks | App shell, landing page, dashboard layout |
 | 4 | 2 tasks | Prisma + PostgreSQL, user persistence |
 | 5 | 4 tasks | Skills CRUD with server actions |
-| 6 | 2 tasks | Profile pages (private + public) |
-| 7 | 3 tasks | Error states, SEO, production readiness |
-| **Total** | **22 tasks** | |
+| 6 | 3 tasks | Error states, SEO, production readiness |
+| **Total** | **20 tasks** | |
 
 Each task is a self-contained prompt that can be executed sequentially. Tasks within a phase may depend on prior tasks in the same phase, but each phase builds cleanly on the previous one.
